@@ -1,0 +1,46 @@
+|--- Juiciness <= -1.55
+|   |--- Weight <= 0.64
+|   |   |--- Acidity <= -2.27
+|   |   |   |--- Weight <= -0.00
+|   |   |   |   |--- class: 0
+|   |   |   |--- Weight >  -0.00
+|   |   |   |   |--- class: 0
+|   |   |--- Acidity >  -2.27
+|   |   |   |--- Crunchiness <= -0.73
+|   |   |   |   |--- class: 1
+|   |   |   |--- Crunchiness >  -0.73
+|   |   |   |   |--- class: 0
+|   |--- Weight >  0.64
+|   |   |--- Acidity <= 0.59
+|   |   |   |--- Juiciness <= -1.66
+|   |   |   |   |--- class: 1
+|   |   |   |--- Juiciness >  -1.66
+|   |   |   |   |--- class: 0
+|   |   |--- Acidity >  0.59
+|   |   |   |--- Ripeness <= 0.85
+|   |   |   |   |--- class: 1
+|   |   |   |--- Ripeness >  0.85
+|   |   |   |   |--- class: 0
+|--- Juiciness >  -1.55
+|   |--- Ripeness <= 1.26
+|   |   |--- Juiciness <= 0.13
+|   |   |   |--- Crunchiness <= -0.02
+|   |   |   |   |--- class: 1
+|   |   |   |--- Crunchiness >  -0.02
+|   |   |   |   |--- class: 0
+|   |   |--- Juiciness >  0.13
+|   |   |   |--- Weight <= -2.09
+|   |   |   |   |--- class: 1
+|   |   |   |--- Weight >  -2.09
+|   |   |   |   |--- class: 1
+|   |--- Ripeness >  1.26
+|   |   |--- Sweetness <= -0.77
+|   |   |   |--- Size <= 1.28
+|   |   |   |   |--- class: 0
+|   |   |   |--- Size >  1.28
+|   |   |   |   |--- class: 1
+|   |   |--- Sweetness >  -0.77
+|   |   |   |--- Size <= -1.28
+|   |   |   |   |--- class: 0
+|   |   |   |--- Size >  -1.28
+|   |   |   |   |--- class: 1

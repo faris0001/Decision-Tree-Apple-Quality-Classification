@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apple Quality Classification</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f2;
+            color: #26352c;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #23834b;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #23834b;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            background: #23834b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #176638;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .good {
+            background: #e0f5e8;
+            color: #18733a;
+        }
+
+        .bad {
+            background: #fde8e8;
+            color: #b52b2b;
+        }
+
+        .error {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffe5e5;
+            color: #b52b2b;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 550px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🍎 Apple Quality Classification</h1>
+
+    <p class="description">
+        Sistem klasifikasi kualitas buah apel menggunakan
+        algoritma Machine Learning Decision Tree.
+    </p>
+
+    <form method="POST">
+
+        <div class="grid">
+
+            <div>
+                <label>Size</label>
+                <input type="number" step="any" name="Size"
+                       value="{{ data_input.get('Size', '') }}" required>
+            </div>
+
+            <div>
+                <label>Weight</label>
+                <input type="number" step="any" name="Weight"
+                       value="{{ data_input.get('Weight', '') }}" required>
+            </div>
+
+            <div>
+                <label>Sweetness</label>
+                <input type="number" step="any" name="Sweetness"
+                       value="{{ data_input.get('Sweetness', '') }}" required>
+            </div>
+
+            <div>
+                <label>Crunchiness</label>
+                <input type="number" step="any" name="Crunchiness"
+                       value="{{ data_input.get('Crunchiness', '') }}" required>
+            </div>
+
+            <div>
+                <label>Juiciness</label>
+                <input type="number" step="any" name="Juiciness"
+                       value="{{ data_input.get('Juiciness', '') }}" required>
+            </div>
+
+            <div>
+                <label>Ripeness</label>
+                <input type="number" step="any" name="Ripeness"
+                       value="{{ data_input.get('Ripeness', '') }}" required>
+            </div>
+
+            <div>
+                <label>Acidity</label>
+                <input type="number" step="any" name="Acidity"
+                       value="{{ data_input.get('Acidity', '') }}" required>
+            </div>
+
+        </div>
+
+        <button type="submit">PREDIKSI KUALITAS APEL</button>
+
+    </form>
+
+    {% if hasil %}
+
+        <div class="result {{ 'good' if hasil == 'GOOD' else 'bad' }}">
+
+            <h2>Hasil Prediksi: {{ hasil }}</h2>
+
+            {% if hasil == 'GOOD' %}
+                <p>Apel diklasifikasikan memiliki kualitas baik.</p>
+            {% else %}
+                <p>Apel diklasifikasikan memiliki kualitas buruk.</p>
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <div class="footer">
+        TA-05 Decision Tree | Teknik Informatika
+    </div>
+
+</div>
+
+</body>
+</html>
